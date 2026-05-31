@@ -6,8 +6,9 @@
 <title>707</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='90' fill='red'>7</text></svg>">
 
 <style>
 *{
@@ -18,7 +19,7 @@ box-sizing:border-box;
 
 body{
 font-family:"DM Sans", sans-serif;
-background:#0b0f1a;
+background:#050000;
 color:white;
 overflow-x:hidden;
 }
@@ -28,17 +29,18 @@ overflow-x:hidden;
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at 20% 20%, rgba(120,80,255,0.25), transparent 40%),
-radial-gradient(circle at 80% 60%, rgba(0,180,255,0.15), transparent 40%),
-#0b0f1a;
+radial-gradient(circle at 20% 20%, rgba(255,0,0,0.25), transparent 40%),
+radial-gradient(circle at 80% 60%, rgba(255,0,0,0.12), transparent 40%),
+#050000;
 z-index:-2;
 }
 
 .grid{
 position:fixed;
 inset:0;
-background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-image:
+linear-gradient(rgba(255,0,0,0.05) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,0,0,0.05) 1px, transparent 1px);
 background-size:60px 60px;
 z-index:-1;
 opacity:0.4;
@@ -54,8 +56,8 @@ justify-content:center;
 gap:40px;
 padding:18px;
 backdrop-filter:blur(10px);
-background:rgba(10,12,20,0.6);
-border-bottom:1px solid rgba(255,255,255,0.05);
+background:rgba(10,0,0,0.7);
+border-bottom:1px solid rgba(255,0,0,0.2);
 z-index:1000;
 }
 
@@ -68,7 +70,7 @@ transition:.3s;
 }
 
 nav a:hover{
-color:#8a7bff;
+color:#ff2d2d;
 }
 
 /* HERO */
@@ -84,19 +86,18 @@ padding:20px;
 
 h1{
 font-family:"Space Grotesk";
-font-size:90px;
+font-size:100px;
 font-weight:700;
 letter-spacing:-2px;
-background:linear-gradient(90deg,#8a7bff,#4fd1ff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+color:#ff2d2d;
+text-shadow:0 0 30px #ff2d2d;
 }
 
 .subtitle{
-max-width:650px;
+max-width:700px;
 margin-top:20px;
 font-size:18px;
-color:#cfd3ff;
+color:#ffb3b3;
 line-height:1.6;
 }
 
@@ -106,7 +107,7 @@ margin-top:30px;
 display:inline-block;
 padding:15px 40px;
 border-radius:12px;
-background:linear-gradient(90deg,#7c6cff,#4fd1ff);
+background:linear-gradient(90deg,#ff2d2d,#b30000);
 color:white;
 text-decoration:none;
 font-weight:600;
@@ -115,9 +116,10 @@ transition:.3s;
 
 .cta:hover{
 transform:translateY(-3px);
+box-shadow:0 0 20px rgba(255,0,0,0.5);
 }
 
-/* SECTION */
+/* SECTIONS */
 .section{
 padding:120px 20px;
 display:flex;
@@ -130,12 +132,7 @@ text-align:center;
 font-family:"Space Grotesk";
 font-size:42px;
 margin-bottom:30px;
-}
-
-p{
-max-width:700px;
-color:#cbd2ff;
-line-height:1.7;
+color:#ff2d2d;
 }
 
 /* CARDS */
@@ -149,8 +146,8 @@ margin-top:40px;
 }
 
 .card{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.05);
+background:rgba(255,0,0,0.05);
+border:1px solid rgba(255,0,0,0.15);
 padding:25px;
 border-radius:14px;
 backdrop-filter:blur(10px);
@@ -159,40 +156,26 @@ transition:.3s;
 
 .card:hover{
 transform:translateY(-6px);
-border-color:#7c6cff;
+border-color:#ff2d2d;
+box-shadow:0 0 20px rgba(255,0,0,0.3);
 }
 
 .card h3{
+color:#ff2d2d;
 font-family:"Space Grotesk";
-color:#8a7bff;
-margin-bottom:10px;
 }
 
-/* FINAL CTA */
-.final{
-background:linear-gradient(90deg,#7c6cff,#4fd1ff);
-padding:50px 20px;
-margin-top:80px;
-border-radius:20px;
-text-align:center;
-width:90%;
-max-width:900px;
+/* DISCORD */
+.discord{
+margin-top:40px;
 }
 
-.final a{
-display:inline-block;
-margin-top:20px;
-background:#0b0f1a;
-color:white;
-padding:14px 35px;
-border-radius:12px;
-text-decoration:none;
-}
-
+/* FOOTER */
 footer{
 text-align:center;
 padding:30px;
-color:#667;
+color:#777;
+border-top:1px solid rgba(255,0,0,0.1);
 }
 </style>
 </head>
@@ -204,9 +187,8 @@ color:#667;
 
 <nav>
 <a href="#home">Ana Sayfa</a>
-<a href="#about">Topluluk</a>
-<a href="#why">Neden?</a>
-<a href="#join">Katıl</a>
+<a href="#team">Ekip</a>
+<a href="#discord">Discord</a>
 </nav>
 
 <!-- HERO -->
@@ -215,8 +197,7 @@ color:#667;
 <h1>707</h1>
 
 <div class="subtitle">
-Bir Discord topluluğundan daha fazlası.  
-Burada sohbet var, arkadaşlık var, birlikte vakit geçirmek var.
+Bir ekipten fazlası. 707; arkadaşlık, sohbet ve birlikte vakit geçirmek için kurulmuş modern bir Discord topluluğudur.
 </div>
 
 <a class="cta" href="https://discord.com/invite/4AkH96FFyZ" target="_blank">
@@ -225,71 +206,45 @@ Sunucuya Katıl
 
 </section>
 
-<!-- ABOUT -->
-<section class="section" id="about">
+<!-- TEAM -->
+<section class="section" id="team">
 
-<h2>Topluluk</h2>
+<h2>Ekip (Discord Bağlı)</h2>
 
-<p>
-707; arkadaş ortamı kurmak, sohbet etmek ve birlikte vakit geçirmek için
-oluşturulmuş modern bir Discord topluluğudur. Amaç sadece konuşmak değil,
-gerçek bir dijital arkadaş çevresi oluşturmaktır.
+<p style="max-width:700px;color:#ffb3b3;">
+Aşağıdaki liste Discord sunucusuna bağlıdır. Aktif üyeleri canlı görebilirsin.
 </p>
 
-<div class="cards">
-
-<div class="card">
-<h3>Sohbet</h3>
-<p>Günlük aktif konuşma ortamı.</p>
-</div>
-
-<div class="card">
-<h3>Arkadaşlık</h3>
-<p>Yeni insanlar tanıma imkanı.</p>
-</div>
-
-<div class="card">
-<h3>Eğlence</h3>
-<p>Oyun, muhabbet ve etkinlikler.</p>
-</div>
-
+<div class="discord">
+<iframe
+src="https://discord.com/widget?id=1469017376509923473&theme=dark"
+width="350"
+height="500"
+allowtransparency="true"
+frameborder="0"
+sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+</iframe>
 </div>
 
 </section>
 
-<!-- WHY -->
-<section class="section" id="why">
+<!-- DISCORD -->
+<section class="section" id="discord">
 
-<h2>Neden 707?</h2>
+<h2>Katıl</h2>
 
-<p>
-Çünkü burası sadece bir sunucu değil. İnsanların rahat hissettiği,
-kendini dışlanmış hissetmediği bir ortam.
+<p style="color:#ffb3b3;max-width:600px;">
+707 topluluğuna katıl, sohbet et ve ekibin bir parçası ol.
 </p>
 
-</section>
-
-<!-- JOIN -->
-<section class="section" id="join">
-
-<div class="final">
-
-<h2>Katılmaya Hazır mısın?</h2>
-
-<p style="margin-top:10px;">
-707 topluluğuna şimdi katıl ve sohbetin bir parçası ol.
-</p>
-
-<a href="https://discord.com/invite/4AkH96FFyZ" target="_blank">
+<a class="cta" href="https://discord.com/invite/4AkH96FFyZ" target="_blank">
 Discord'a Katıl
 </a>
-
-</div>
 
 </section>
 
 <footer>
-707 © 2026 — Community Project
+707 © 2026
 </footer>
 
 </body>
