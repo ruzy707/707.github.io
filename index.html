@@ -5,10 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>707</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='90' fill='red'>7</text></svg>">
 
 <style>
 *{
@@ -18,7 +15,7 @@ box-sizing:border-box;
 }
 
 body{
-font-family:"DM Sans", sans-serif;
+font-family:"DM Sans";
 background:#050000;
 color:white;
 overflow-x:hidden;
@@ -29,8 +26,8 @@ overflow-x:hidden;
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at 20% 20%, rgba(255,0,0,0.25), transparent 40%),
-radial-gradient(circle at 80% 60%, rgba(255,0,0,0.12), transparent 40%),
+radial-gradient(circle at 20% 20%, rgba(255,0,0,0.25), transparent 45%),
+radial-gradient(circle at 80% 60%, rgba(255,0,0,0.15), transparent 45%),
 #050000;
 z-index:-2;
 }
@@ -42,8 +39,8 @@ background-image:
 linear-gradient(rgba(255,0,0,0.05) 1px, transparent 1px),
 linear-gradient(90deg, rgba(255,0,0,0.05) 1px, transparent 1px);
 background-size:60px 60px;
+opacity:.3;
 z-index:-1;
-opacity:0.4;
 }
 
 /* NAV */
@@ -55,8 +52,8 @@ display:flex;
 justify-content:center;
 gap:40px;
 padding:18px;
+background:rgba(10,0,0,0.8);
 backdrop-filter:blur(10px);
-background:rgba(10,0,0,0.7);
 border-bottom:1px solid rgba(255,0,0,0.2);
 z-index:1000;
 }
@@ -66,7 +63,6 @@ font-family:"Space Grotesk";
 color:#ddd;
 text-decoration:none;
 font-weight:500;
-transition:.3s;
 }
 
 nav a:hover{
@@ -86,15 +82,13 @@ padding:20px;
 
 h1{
 font-family:"Space Grotesk";
-font-size:100px;
-font-weight:700;
-letter-spacing:-2px;
+font-size:120px;
 color:#ff2d2d;
-text-shadow:0 0 30px #ff2d2d;
+text-shadow:0 0 35px #ff2d2d;
 }
 
-.subtitle{
-max-width:700px;
+.sub{
+max-width:750px;
 margin-top:20px;
 font-size:18px;
 color:#ffb3b3;
@@ -103,11 +97,11 @@ line-height:1.6;
 
 /* CTA */
 .cta{
-margin-top:30px;
+margin-top:25px;
 display:inline-block;
-padding:15px 40px;
+padding:15px 45px;
 border-radius:12px;
-background:linear-gradient(90deg,#ff2d2d,#b30000);
+background:linear-gradient(90deg,#ff2d2d,#7a0000);
 color:white;
 text-decoration:none;
 font-weight:600;
@@ -115,34 +109,29 @@ transition:.3s;
 }
 
 .cta:hover{
-transform:translateY(-3px);
-box-shadow:0 0 20px rgba(255,0,0,0.5);
+transform:scale(1.05);
 }
 
-/* SECTIONS */
+/* SECTION */
 .section{
-padding:120px 20px;
-display:flex;
-flex-direction:column;
-align-items:center;
+padding:110px 20px;
 text-align:center;
 }
 
-.section h2{
+h2{
 font-family:"Space Grotesk";
-font-size:42px;
-margin-bottom:30px;
+font-size:40px;
 color:#ff2d2d;
+margin-bottom:25px;
 }
 
-/* CARDS */
-.cards{
+/* FEATURES */
+.features{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
 gap:20px;
-width:100%;
 max-width:900px;
-margin-top:40px;
+margin:40px auto;
 }
 
 .card{
@@ -150,14 +139,12 @@ background:rgba(255,0,0,0.05);
 border:1px solid rgba(255,0,0,0.15);
 padding:25px;
 border-radius:14px;
-backdrop-filter:blur(10px);
 transition:.3s;
 }
 
 .card:hover{
 transform:translateY(-6px);
 border-color:#ff2d2d;
-box-shadow:0 0 20px rgba(255,0,0,0.3);
 }
 
 .card h3{
@@ -165,9 +152,44 @@ color:#ff2d2d;
 font-family:"Space Grotesk";
 }
 
+/* TEAM */
+.team{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+max-width:800px;
+margin:40px auto;
+}
+
+.member{
+background:#0f0000;
+border:1px solid rgba(255,0,0,0.15);
+padding:20px;
+border-radius:12px;
+}
+
+.member h3{
+color:#ff2d2d;
+}
+
 /* DISCORD */
-.discord{
+.discord-box{
 margin-top:40px;
+background:linear-gradient(90deg,#ff2d2d,#5a0000);
+padding:40px;
+border-radius:16px;
+max-width:800px;
+margin-inline:auto;
+}
+
+.discord-box a{
+display:inline-block;
+margin-top:15px;
+padding:14px 35px;
+background:#000;
+color:white;
+text-decoration:none;
+border-radius:10px;
 }
 
 /* FOOTER */
@@ -187,8 +209,9 @@ border-top:1px solid rgba(255,0,0,0.1);
 
 <nav>
 <a href="#home">Ana Sayfa</a>
+<a href="#about">Topluluk</a>
 <a href="#team">Ekip</a>
-<a href="#discord">Discord</a>
+<a href="#join">Discord</a>
 </nav>
 
 <!-- HERO -->
@@ -196,8 +219,9 @@ border-top:1px solid rgba(255,0,0,0.1);
 
 <h1>707</h1>
 
-<div class="subtitle">
-Bir ekipten fazlası. 707; arkadaşlık, sohbet ve birlikte vakit geçirmek için kurulmuş modern bir Discord topluluğudur.
+<div class="sub">
+Bir Discord topluluğundan fazlası.  
+Sohbet, arkadaşlık ve birlikte vakit geçirmek için kurulmuş bir ekip.
 </div>
 
 <a class="cta" href="https://discord.com/invite/4AkH96FFyZ" target="_blank">
@@ -206,40 +230,63 @@ Sunucuya Katıl
 
 </section>
 
-<!-- TEAM -->
-<section class="section" id="team">
+<!-- ABOUT -->
+<section class="section" id="about">
 
-<h2>Ekip (Discord Bağlı)</h2>
+<h2>Topluluk</h2>
 
-<p style="max-width:700px;color:#ffb3b3;">
-Aşağıdaki liste Discord sunucusuna bağlıdır. Aktif üyeleri canlı görebilirsin.
-</p>
+<div class="features">
 
-<div class="discord">
-<iframe
-src="https://discord.com/widget?id=1469017376509923473&theme=dark"
-width="350"
-height="500"
-allowtransparency="true"
-frameborder="0"
-sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-</iframe>
+<div class="card">
+<h3>Sohbet</h3>
+<p>Aktif ve sürekli konuşma ortamı.</p>
+</div>
+
+<div class="card">
+<h3>Arkadaşlık</h3>
+<p>Yeni insanlar tanıma ve ekip olma.</p>
+</div>
+
+<div class="card">
+<h3>Eğlence</h3>
+<p>Oyun, muhabbet ve etkinlikler.</p>
+</div>
+
 </div>
 
 </section>
 
-<!-- DISCORD -->
-<section class="section" id="discord">
+<!-- TEAM -->
+<section class="section" id="team">
+
+<h2>Ekip</h2>
+
+<div class="team">
+
+<div class="member"><h3>!Ruzy</h3><p>Kurucu</p></div>
+<div class="member"><h3>qti!</h3><p>Yönetim</p></div>
+<div class="member"><h3>Zkush</h3><p>Üye</p></div>
+<div class="member"><h3>egekhanz</h3><p>Üye</p></div>
+<div class="member"><h3>тυявαи</h3><p>Üye</p></div>
+
+</div>
+
+</section>
+
+<!-- JOIN -->
+<section class="section" id="join">
 
 <h2>Katıl</h2>
 
-<p style="color:#ffb3b3;max-width:600px;">
-707 topluluğuna katıl, sohbet et ve ekibin bir parçası ol.
-</p>
+<div class="discord-box">
 
-<a class="cta" href="https://discord.com/invite/4AkH96FFyZ" target="_blank">
+<p>707 topluluğuna katıl ve sohbetin bir parçası ol.</p>
+
+<a href="https://discord.com/invite/4AkH96FFyZ" target="_blank">
 Discord'a Katıl
 </a>
+
+</div>
 
 </section>
 
