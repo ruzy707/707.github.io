@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>707</title>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='90' fill='red'>7</text></svg>">
 
 <style>
 *{
@@ -11,106 +14,136 @@
     padding:0;
     box-sizing:border-box;
     scroll-behavior:smooth;
-    font-family:Arial,sans-serif;
 }
 
 body{
-    background:#0b0b0b;
-    color:white;
+    background:#050505;
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
 }
 
 nav{
     position:fixed;
     top:0;
     width:100%;
-    background:rgba(0,0,0,0.9);
-    backdrop-filter:blur(10px);
     display:flex;
     justify-content:center;
     gap:40px;
     padding:20px;
+    background:rgba(0,0,0,.85);
+    backdrop-filter:blur(10px);
     z-index:1000;
+    border-bottom:1px solid #1f1f1f;
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    font-size:18px;
+    font-weight:bold;
     transition:.3s;
 }
 
 nav a:hover{
-    color:#ff3333;
+    color:#ff2d2d;
 }
 
-section{
+.hero{
     min-height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    padding:40px;
+    text-align:center;
+    padding:20px;
 }
 
 .logo{
-    font-size:120px;
-    font-weight:bold;
-    color:#ff3333;
-    text-shadow:0 0 20px #ff3333;
-    animation:glow 2s infinite alternate;
+    font-size:140px;
+    font-weight:900;
+    color:#ff2d2d;
+    text-shadow:
+    0 0 10px #ff2d2d,
+    0 0 25px #ff2d2d,
+    0 0 50px #ff2d2d;
+    animation: glow 2s infinite alternate;
 }
 
 @keyframes glow{
     from{
-        text-shadow:0 0 15px #ff3333;
+        transform:scale(1);
     }
     to{
-        text-shadow:0 0 35px #ff3333;
+        transform:scale(1.03);
     }
 }
 
-.desc{
-    max-width:800px;
-    text-align:center;
-    margin-top:25px;
-    color:#d0d0d0;
-    line-height:1.8;
-    font-size:18px;
+.subtitle{
+    margin-top:20px;
+    font-size:22px;
+    color:#bdbdbd;
+    max-width:700px;
 }
 
-.title{
+.section{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:100px 20px;
+}
+
+.section h2{
     font-size:55px;
-    margin-bottom:30px;
+    margin-bottom:40px;
 }
 
 .members{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
+    width:100%;
+    max-width:1000px;
 }
 
 .member{
-    background:#161616;
-    border:1px solid #2c2c2c;
-    padding:18px 35px;
-    border-radius:12px;
-    font-size:22px;
+    background:#111;
+    border:1px solid #222;
+    border-radius:15px;
+    padding:30px;
+    text-align:center;
     transition:.3s;
 }
 
 .member:hover{
-    transform:translateY(-5px);
-    border-color:#ff3333;
+    transform:translateY(-8px);
+    border-color:#ff2d2d;
+    box-shadow:0 0 20px rgba(255,45,45,.3);
+}
+
+.member h3{
+    color:#ff2d2d;
+}
+
+.discord-box{
+    background:#111;
+    border:1px solid #222;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    max-width:700px;
 }
 
 .discord-btn{
+    display:inline-block;
+    margin-top:20px;
     background:#5865F2;
     color:white;
     text-decoration:none;
-    padding:18px 40px;
-    border-radius:12px;
-    font-size:22px;
+    padding:16px 35px;
+    border-radius:10px;
+    font-size:20px;
     transition:.3s;
 }
 
@@ -119,55 +152,120 @@ section{
 }
 
 .footer{
-    color:#777;
-    margin-top:30px;
+    text-align:center;
+    padding:30px;
+    color:#666;
+    border-top:1px solid #151515;
+}
+
+.bg{
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 50% 50%,
+    rgba(255,0,0,.15),
+    transparent 60%);
+    z-index:-1;
+}
+
+@media(max-width:700px){
+
+.logo{
+    font-size:90px;
+}
+
+.section h2{
+    font-size:40px;
+}
+
+nav{
+    gap:20px;
+}
 }
 </style>
 </head>
 <body>
 
+<div class="bg"></div>
+
 <nav>
-    <a href="#anasayfa">Ana Sayfa</a>
-    <a href="#ekip">Ekip</a>
+    <a href="#home">Ana Sayfa</a>
+    <a href="#team">Ekip</a>
     <a href="#discord">Discord</a>
 </nav>
 
-<section id="anasayfa">
+<section class="hero" id="home">
+
     <div class="logo">707</div>
 
-    <p class="desc">
-        707, birlikte oyun oynayan, sohbet eden ve vakit geçiren insanların
-        oluşturduğu bir topluluktur. Burada dostluk, eğlence ve ekip ruhu ön
-        plandadır. Yeni insanlarla tanışmak ve ekibin bir parçası olmak için
-        aramıza katıl.
-    </p>
+    <div class="subtitle">
+        Bir ekip. Bir topluluk. 707.
+        <br><br>
+        Oyun, sohbet ve dostluk için bir araya gelen insanların oluşturduğu topluluk.
+    </div>
+
 </section>
 
-<section id="ekip">
-    <h2 class="title">Ekip</h2>
+<section class="section" id="team">
+
+    <h2>Ekip</h2>
 
     <div class="members">
-        <div class="member">!Ruzy</div>
-        <div class="member">qti!</div>
-        <div class="member">Zkush</div>
-        <div class="member">egekhanz</div>
-        <div class="member">тυявαи</div>
+
+        <div class="member">
+            <h3>!Ruzy</h3>
+            <p>Kurucu</p>
+        </div>
+
+        <div class="member">
+            <h3>qti!</h3>
+            <p>Yönetim</p>
+        </div>
+
+        <div class="member">
+            <h3>Zkush</h3>
+            <p>Üye</p>
+        </div>
+
+        <div class="member">
+            <h3>egekhanz</h3>
+            <p>Üye</p>
+        </div>
+
+        <div class="member">
+            <h3>тυявαи</h3>
+            <p>Üye</p>
+        </div>
+
     </div>
+
 </section>
 
-<section id="discord">
-    <h2 class="title">Discord</h2>
+<section class="section" id="discord">
 
-    <a class="discord-btn"
-       href="https://discord.com/invite/4AkH96FFyZ"
-       target="_blank">
-       Discord'a Katıl
-    </a>
+    <h2>Discord</h2>
 
-    <div class="footer">
-        707 Community © 2026
+    <div class="discord-box">
+
+        <h3>707 Community</h3>
+
+        <p style="margin-top:15px;color:#cfcfcf;">
+            Topluluğa katılmak için Discord sunucumuza gel.
+        </p>
+
+        <a class="discord-btn"
+        href="https://discord.com/invite/4AkH96FFyZ"
+        target="_blank">
+        Discord'a Katıl
+        </a>
+
     </div>
+
 </section>
+
+<div class="footer">
+    707 © 2026
+</div>
 
 </body>
 </html>
