@@ -3,16 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>707</title>
+<title>707 Community</title>
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:"DM Sans";
@@ -26,8 +22,8 @@ overflow-x:hidden;
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at 20% 20%, rgba(255,0,0,0.25), transparent 45%),
-radial-gradient(circle at 80% 60%, rgba(255,0,0,0.15), transparent 45%),
+radial-gradient(circle at 20% 20%, rgba(255,0,0,0.25), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(255,0,0,0.15), transparent 40%),
 #050000;
 z-index:-2;
 }
@@ -62,12 +58,9 @@ nav a{
 font-family:"Space Grotesk";
 color:#ddd;
 text-decoration:none;
-font-weight:500;
 }
 
-nav a:hover{
-color:#ff2d2d;
-}
+nav a:hover{color:#ff2d2d;}
 
 /* HERO */
 .hero{
@@ -84,54 +77,57 @@ h1{
 font-family:"Space Grotesk";
 font-size:120px;
 color:#ff2d2d;
-text-shadow:0 0 35px #ff2d2d;
+text-shadow:0 0 40px #ff2d2d;
 }
 
 .sub{
-max-width:750px;
+max-width:800px;
 margin-top:20px;
 font-size:18px;
 color:#ffb3b3;
 line-height:1.6;
 }
 
-/* CTA */
 .cta{
 margin-top:25px;
-display:inline-block;
-padding:15px 45px;
-border-radius:12px;
+padding:15px 40px;
 background:linear-gradient(90deg,#ff2d2d,#7a0000);
-color:white;
+border-radius:12px;
 text-decoration:none;
+color:white;
 font-weight:600;
 transition:.3s;
 }
 
-.cta:hover{
-transform:scale(1.05);
-}
+.cta:hover{transform:scale(1.05);}
 
 /* SECTION */
 .section{
-padding:110px 20px;
+padding:120px 20px;
 text-align:center;
 }
 
 h2{
 font-family:"Space Grotesk";
-font-size:40px;
+font-size:42px;
 color:#ff2d2d;
 margin-bottom:25px;
 }
 
+p{
+max-width:800px;
+margin:auto;
+color:#ffb3b3;
+line-height:1.7;
+}
+
 /* FEATURES */
-.features{
+.grid3{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:20px;
-max-width:900px;
-margin:40px auto;
+max-width:1000px;
+margin:50px auto 0;
 }
 
 .card{
@@ -143,7 +139,7 @@ transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-6px);
+transform:translateY(-8px);
 border-color:#ff2d2d;
 }
 
@@ -152,47 +148,26 @@ color:#ff2d2d;
 font-family:"Space Grotesk";
 }
 
-/* TEAM */
-.team{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:15px;
-max-width:800px;
-margin:40px auto;
-}
-
-.member{
-background:#0f0000;
-border:1px solid rgba(255,0,0,0.15);
-padding:20px;
-border-radius:12px;
-}
-
-.member h3{
-color:#ff2d2d;
-}
-
-/* DISCORD */
-.discord-box{
-margin-top:40px;
+/* BIG CTA */
+.big{
+margin-top:80px;
 background:linear-gradient(90deg,#ff2d2d,#5a0000);
-padding:40px;
-border-radius:16px;
-max-width:800px;
+padding:60px 30px;
+border-radius:18px;
+max-width:1000px;
 margin-inline:auto;
 }
 
-.discord-box a{
+.big a{
 display:inline-block;
-margin-top:15px;
-padding:14px 35px;
+margin-top:20px;
 background:#000;
+padding:14px 35px;
+border-radius:12px;
 color:white;
 text-decoration:none;
-border-radius:10px;
 }
 
-/* FOOTER */
 footer{
 text-align:center;
 padding:30px;
@@ -208,10 +183,10 @@ border-top:1px solid rgba(255,0,0,0.1);
 <div class="grid"></div>
 
 <nav>
-<a href="#home">Ana Sayfa</a>
+<a href="#home">Ana</a>
 <a href="#about">Topluluk</a>
-<a href="#team">Ekip</a>
-<a href="#join">Discord</a>
+<a href="#features">Özellikler</a>
+<a href="#join">Katıl</a>
 </nav>
 
 <!-- HERO -->
@@ -220,12 +195,12 @@ border-top:1px solid rgba(255,0,0,0.1);
 <h1>707</h1>
 
 <div class="sub">
-Bir Discord topluluğundan fazlası.  
-Sohbet, arkadaşlık ve birlikte vakit geçirmek için kurulmuş bir ekip.
+Modern Discord topluluğu.  
+Sohbet, arkadaşlık ve aktif bir ekip ortamı.
 </div>
 
-<a class="cta" href="https://discord.com/invite/4AkH96FFyZ" target="_blank">
-Sunucuya Katıl
+<a class="cta" href="https://discord.com/invite/4AkH96FFyZ">
+Katıl
 </a>
 
 </section>
@@ -235,7 +210,19 @@ Sunucuya Katıl
 
 <h2>Topluluk</h2>
 
-<div class="features">
+<p>
+707, sadece bir Discord sunucusu değil.  
+Günlük sohbet, arkadaşlık ve birlikte vakit geçirme üzerine kurulu bir topluluk.
+</p>
+
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+
+<h2>Öne Çıkanlar</h2>
+
+<div class="grid3">
 
 <div class="card">
 <h3>Sohbet</h3>
@@ -244,30 +231,13 @@ Sunucuya Katıl
 
 <div class="card">
 <h3>Arkadaşlık</h3>
-<p>Yeni insanlar tanıma ve ekip olma.</p>
+<p>Yeni insanlarla tanışma fırsatı.</p>
 </div>
 
 <div class="card">
-<h3>Eğlence</h3>
-<p>Oyun, muhabbet ve etkinlikler.</p>
+<h3>Topluluk</h3>
+<p>Gerçek ekip ruhu ve bağ.</p>
 </div>
-
-</div>
-
-</section>
-
-<!-- TEAM -->
-<section class="section" id="team">
-
-<h2>Ekip</h2>
-
-<div class="team">
-
-<div class="member"><h3>!Ruzy</h3><p>Kurucu</p></div>
-<div class="member"><h3>qti!</h3><p>Yönetim</p></div>
-<div class="member"><h3>Zkush</h3><p>Üye</p></div>
-<div class="member"><h3>egekhanz</h3><p>Üye</p></div>
-<div class="member"><h3>тυявαи</h3><p>Üye</p></div>
 
 </div>
 
@@ -276,14 +246,16 @@ Sunucuya Katıl
 <!-- JOIN -->
 <section class="section" id="join">
 
-<h2>Katıl</h2>
+<div class="big">
 
-<div class="discord-box">
+<h2 style="color:white;">Şimdi Katıl</h2>
 
-<p>707 topluluğuna katıl ve sohbetin bir parçası ol.</p>
+<p>
+707 topluluğuna katıl ve sohbetin parçası ol.
+</p>
 
-<a href="https://discord.com/invite/4AkH96FFyZ" target="_blank">
-Discord'a Katıl
+<a href="https://discord.com/invite/4AkH96FFyZ">
+Discord'a Git
 </a>
 
 </div>
