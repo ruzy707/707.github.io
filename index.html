@@ -13,31 +13,64 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial;
-scroll-behavior:smooth;
 }
 
 body{
 background:#000;
 color:white;
-overflow-x:hidden;
+overflow:hidden;
 }
 
-/* PARTICLES */
-#particles{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-3;
-}
-
-/* DARK OVERLAY */
-.overlay{
+/* LOADING SCREEN */
+#loader{
 position:fixed;
 inset:0;
-background:
-radial-gradient(circle at 50% 30%, rgba(255,0,0,0.15), transparent 60%),
-linear-gradient(to bottom, rgba(0,0,0,0.7), #000);
-z-index:-2;
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
+}
+
+#loader h1{
+font-size:90px;
+color:#ff2d2d;
+text-shadow:0 0 25px #ff2d2d;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.2);}
+100%{transform:scale(1);}
+}
+
+.bar{
+width:200px;
+height:4px;
+background:#222;
+margin-top:20px;
+overflow:hidden;
+border-radius:10px;
+}
+
+.bar span{
+display:block;
+height:100%;
+width:0%;
+background:#ff2d2d;
+animation:load 2.5s forwards;
+}
+
+@keyframes load{
+to{width:100%;}
+}
+
+/* MAIN */
+main{
+opacity:0;
+transition:1s;
 }
 
 /* NAV */
@@ -59,12 +92,10 @@ nav a{
 color:white;
 text-decoration:none;
 font-weight:bold;
-transition:.3s;
 }
 
 nav a:hover{
 color:#ff2d2d;
-text-shadow:0 0 10px #ff2d2d;
 }
 
 /* HERO */
@@ -75,7 +106,9 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:20px;
+background:
+linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.95)),
+url("https://images.unsplash.com/photo-1520975958225-9a5f1f0a2d6c") center/cover;
 }
 
 .logo{
@@ -83,50 +116,13 @@ font-size:170px;
 font-weight:900;
 color:#ff2d2d;
 text-shadow:0 0 25px #ff2d2d;
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.06);}
-100%{transform:scale(1);}
 }
 
 .desc{
-max-width:750px;
+max-width:700px;
 margin-top:20px;
-color:#cfcfcf;
+color:#ccc;
 font-size:18px;
-line-height:1.6;
-}
-
-/* STATS */
-.stats{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-justify-content:center;
-margin-top:30px;
-}
-
-.stat{
-background:#111;
-border:1px solid rgba(255,0,0,0.2);
-padding:20px 30px;
-border-radius:12px;
-min-width:120px;
-text-align:center;
-transition:.3s;
-}
-
-.stat:hover{
-transform:translateY(-5px);
-border-color:#ff2d2d;
-}
-
-.stat h4{
-color:#ff2d2d;
-font-size:22px;
 }
 
 /* SECTIONS */
@@ -137,86 +133,67 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 padding:100px 20px;
+background:#050505;
 }
 
 .section h2{
+color:#ff2d2d;
 font-size:55px;
 margin-bottom:40px;
-color:#ff2d2d;
-text-shadow:0 0 15px #ff2d2d;
 }
 
 /* CARDS */
-.members{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-width:100%;
-max-width:1000px;
-}
-
 .card{
 background:#111;
-border:1px solid #222;
 padding:25px;
-border-radius:14px;
+border-radius:12px;
+margin:10px;
+border:1px solid #222;
 text-align:center;
-transition:.3s;
 }
 
-.card:hover{
-transform:translateY(-10px) scale(1.03);
-border-color:#ff2d2d;
-box-shadow:0 0 25px rgba(255,0,0,0.3);
-}
-
-.card h3{
-color:#ff2d2d;
-}
+.card h3{color:#ff2d2d}
 
 /* DISCORD */
-.discord{
-background:#111;
-border:1px solid #222;
-padding:40px;
-border-radius:15px;
-text-align:center;
-max-width:600px;
-}
-
 .btn{
-display:inline-block;
-margin-top:20px;
 padding:15px 40px;
 background:#5865F2;
 color:white;
 text-decoration:none;
 border-radius:10px;
-font-size:18px;
-transition:.3s;
+display:inline-block;
+margin-top:20px;
 }
 
-.btn:hover{
-transform:scale(1.08);
+/* PARTICLES */
+canvas{
+position:fixed;
+inset:0;
+z-index:-1;
 }
 
-/* FOOTER */
-footer{
-text-align:center;
-padding:30px;
-color:#666;
-border-top:1px solid #111;
-}
 </style>
 </head>
 
 <body>
 
+<!-- LOADER -->
+<div id="loader">
+<h1>707</h1>
+<div class="bar"><span></span></div>
+</div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8a7c6b6f2.mp3?filename=dark-ambient-110191.mp3" type="audio/mpeg">
+</audio>
+
 <canvas id="particles"></canvas>
-<div class="overlay"></div>
+
+<main>
 
 <nav>
-<a href="#home">Ana Sayfa</a>
+<a href="#home">Ana</a>
 <a href="#team">Ekip</a>
 <a href="#discord">Discord</a>
 </nav>
@@ -226,14 +203,7 @@ border-top:1px solid #111;
 <div class="logo">707</div>
 
 <div class="desc">
-Bir ekipten fazlası. 707 sadece bir isim değil, bir ruh.
-Oyun, sohbet ve kardeşlik burada birleşir.
-</div>
-
-<div class="stats">
-<div class="stat"><h4>707</h4><p>Ruh</p></div>
-<div class="stat"><h4>5+</h4><p>Üye</p></div>
-<div class="stat"><h4>24/7</h4><p>Aktif</p></div>
+Bir ekipten fazlası. 707 bir ruh, bir bağ, bir kardeşliktir.
 </div>
 
 </section>
@@ -242,15 +212,11 @@ Oyun, sohbet ve kardeşlik burada birleşir.
 
 <h2>Ekip</h2>
 
-<div class="members">
-
 <div class="card"><h3>!Ruzy</h3><p>Kurucu</p></div>
 <div class="card"><h3>qti!</h3><p>Yönetim</p></div>
 <div class="card"><h3>Zkush</h3><p>Üye</p></div>
 <div class="card"><h3>egekhanz</h3><p>Üye</p></div>
 <div class="card"><h3>тυявαи</h3><p>Üye</p></div>
-
-</div>
 
 </section>
 
@@ -258,62 +224,53 @@ Oyun, sohbet ve kardeşlik burada birleşir.
 
 <h2>Discord</h2>
 
-<div class="discord">
-
-<p>707 Community’ye katıl ve ekibe dahil ol.</p>
+<p>707 Community’ye katıl</p>
 
 <a class="btn" href="https://discord.com/invite/4AkH96FFyZ" target="_blank">
-Discord'a Katıl
+Katıl
 </a>
-
-</div>
 
 </section>
 
-<footer>
-707 © 2026
-</footer>
+</main>
 
 <script>
-/* 🔴 RED PARTICLES */
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
+/* LOADER */
+window.onload = () => {
+setTimeout(() => {
+document.getElementById("loader").style.display="none";
+document.querySelector("main").style.opacity="1";
+document.getElementById("music").play();
+document.body.style.overflow="auto";
+}, 2500);
+};
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+/* PARTICLES */
+const c=document.getElementById("particles");
+const x=c.getContext("2d");
 
-let particles = [];
+c.width=innerWidth;
+c.height=innerHeight;
 
+let p=[];
 for(let i=0;i<80;i++){
-particles.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2,
-dx:(Math.random()-0.5)*0.5,
-dy:(Math.random()-0.5)*0.5
-});
+p.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2});
 }
 
-function animate(){
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-for(let p of particles){
-ctx.beginPath();
-ctx.fillStyle="rgba(255,0,0,0.6)";
-ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-ctx.fill();
-
-p.x += p.dx;
-p.y += p.dy;
-
-if(p.x<0||p.x>canvas.width)p.dx*=-1;
-if(p.y<0||p.y>canvas.height)p.dy*=-1;
+function draw(){
+x.clearRect(0,0,c.width,c.height);
+for(let i of p){
+x.fillStyle="rgba(255,0,0,0.6)";
+x.beginPath();
+x.arc(i.x,i.y,i.r,0,Math.PI*2);
+x.fill();
+i.x+=0.3;i.y+=0.3;
+if(i.x>c.width)i.x=0;
+if(i.y>c.height)i.y=0;
 }
-
-requestAnimationFrame(animate);
+requestAnimationFrame(draw);
 }
-
-animate();
+draw();
 </script>
 
 </body>
