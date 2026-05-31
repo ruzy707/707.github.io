@@ -5,72 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>707</title>
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.85em' font-size='90' fill='red'>7</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
 }
 
 body{
-background:#000;
+font-family:"DM Sans", sans-serif;
+background:#0b0f1a;
 color:white;
-overflow:hidden;
+overflow-x:hidden;
 }
 
-/* LOADING SCREEN */
-#loader{
+/* BACKGROUND */
+.bg{
 position:fixed;
 inset:0;
-background:#000;
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:9999;
+background:
+radial-gradient(circle at 20% 20%, rgba(120,80,255,0.25), transparent 40%),
+radial-gradient(circle at 80% 60%, rgba(0,180,255,0.15), transparent 40%),
+#0b0f1a;
+z-index:-2;
 }
 
-#loader h1{
-font-size:90px;
-color:#ff2d2d;
-text-shadow:0 0 25px #ff2d2d;
-animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.2);}
-100%{transform:scale(1);}
-}
-
-.bar{
-width:200px;
-height:4px;
-background:#222;
-margin-top:20px;
-overflow:hidden;
-border-radius:10px;
-}
-
-.bar span{
-display:block;
-height:100%;
-width:0%;
-background:#ff2d2d;
-animation:load 2.5s forwards;
-}
-
-@keyframes load{
-to{width:100%;}
-}
-
-/* MAIN */
-main{
-opacity:0;
-transition:1s;
+.grid{
+position:fixed;
+inset:0;
+background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-size:60px 60px;
+z-index:-1;
+opacity:0.4;
 }
 
 /* NAV */
@@ -82,20 +53,22 @@ display:flex;
 justify-content:center;
 gap:40px;
 padding:18px;
-background:rgba(0,0,0,0.6);
 backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(255,0,0,0.2);
+background:rgba(10,12,20,0.6);
+border-bottom:1px solid rgba(255,255,255,0.05);
 z-index:1000;
 }
 
 nav a{
-color:white;
+font-family:"Space Grotesk";
+color:#ddd;
 text-decoration:none;
-font-weight:bold;
+font-weight:500;
+transition:.3s;
 }
 
 nav a:hover{
-color:#ff2d2d;
+color:#8a7bff;
 }
 
 /* HERO */
@@ -106,172 +79,218 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:
-linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.95)),
-url("https://images.unsplash.com/photo-1520975958225-9a5f1f0a2d6c") center/cover;
+padding:20px;
 }
 
-.logo{
-font-size:170px;
-font-weight:900;
-color:#ff2d2d;
-text-shadow:0 0 25px #ff2d2d;
+h1{
+font-family:"Space Grotesk";
+font-size:90px;
+font-weight:700;
+letter-spacing:-2px;
+background:linear-gradient(90deg,#8a7bff,#4fd1ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-.desc{
-max-width:700px;
+.subtitle{
+max-width:650px;
 margin-top:20px;
-color:#ccc;
 font-size:18px;
+color:#cfd3ff;
+line-height:1.6;
 }
 
-/* SECTIONS */
+/* CTA */
+.cta{
+margin-top:30px;
+display:inline-block;
+padding:15px 40px;
+border-radius:12px;
+background:linear-gradient(90deg,#7c6cff,#4fd1ff);
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.cta:hover{
+transform:translateY(-3px);
+}
+
+/* SECTION */
 .section{
-min-height:100vh;
+padding:120px 20px;
 display:flex;
 flex-direction:column;
-justify-content:center;
 align-items:center;
-padding:100px 20px;
-background:#050505;
-}
-
-.section h2{
-color:#ff2d2d;
-font-size:55px;
-margin-bottom:40px;
-}
-
-/* CARDS */
-.card{
-background:#111;
-padding:25px;
-border-radius:12px;
-margin:10px;
-border:1px solid #222;
 text-align:center;
 }
 
-.card h3{color:#ff2d2d}
+.section h2{
+font-family:"Space Grotesk";
+font-size:42px;
+margin-bottom:30px;
+}
 
-/* DISCORD */
-.btn{
-padding:15px 40px;
-background:#5865F2;
-color:white;
-text-decoration:none;
-border-radius:10px;
+p{
+max-width:700px;
+color:#cbd2ff;
+line-height:1.7;
+}
+
+/* CARDS */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+width:100%;
+max-width:900px;
+margin-top:40px;
+}
+
+.card{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+padding:25px;
+border-radius:14px;
+backdrop-filter:blur(10px);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+border-color:#7c6cff;
+}
+
+.card h3{
+font-family:"Space Grotesk";
+color:#8a7bff;
+margin-bottom:10px;
+}
+
+/* FINAL CTA */
+.final{
+background:linear-gradient(90deg,#7c6cff,#4fd1ff);
+padding:50px 20px;
+margin-top:80px;
+border-radius:20px;
+text-align:center;
+width:90%;
+max-width:900px;
+}
+
+.final a{
 display:inline-block;
 margin-top:20px;
+background:#0b0f1a;
+color:white;
+padding:14px 35px;
+border-radius:12px;
+text-decoration:none;
 }
 
-/* PARTICLES */
-canvas{
-position:fixed;
-inset:0;
-z-index:-1;
+footer{
+text-align:center;
+padding:30px;
+color:#667;
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-<h1>707</h1>
-<div class="bar"><span></span></div>
-</div>
-
-<!-- MUSIC -->
-<audio id="music" loop>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8a7c6b6f2.mp3?filename=dark-ambient-110191.mp3" type="audio/mpeg">
-</audio>
-
-<canvas id="particles"></canvas>
-
-<main>
+<div class="bg"></div>
+<div class="grid"></div>
 
 <nav>
-<a href="#home">Ana</a>
-<a href="#team">Ekip</a>
-<a href="#discord">Discord</a>
+<a href="#home">Ana Sayfa</a>
+<a href="#about">Topluluk</a>
+<a href="#why">Neden?</a>
+<a href="#join">Katıl</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero" id="home">
 
-<div class="logo">707</div>
+<h1>707</h1>
 
-<div class="desc">
-Bir ekipten fazlası. 707 bir ruh, bir bağ, bir kardeşliktir.
+<div class="subtitle">
+Bir Discord topluluğundan daha fazlası.  
+Burada sohbet var, arkadaşlık var, birlikte vakit geçirmek var.
 </div>
 
-</section>
-
-<section class="section" id="team">
-
-<h2>Ekip</h2>
-
-<div class="card"><h3>!Ruzy</h3><p>Kurucu</p></div>
-<div class="card"><h3>qti!</h3><p>Yönetim</p></div>
-<div class="card"><h3>Zkush</h3><p>Üye</p></div>
-<div class="card"><h3>egekhanz</h3><p>Üye</p></div>
-<div class="card"><h3>тυявαи</h3><p>Üye</p></div>
-
-</section>
-
-<section class="section" id="discord">
-
-<h2>Discord</h2>
-
-<p>707 Community’ye katıl</p>
-
-<a class="btn" href="https://discord.com/invite/4AkH96FFyZ" target="_blank">
-Katıl
+<a class="cta" href="https://discord.com/invite/4AkH96FFyZ" target="_blank">
+Sunucuya Katıl
 </a>
 
 </section>
 
-</main>
+<!-- ABOUT -->
+<section class="section" id="about">
 
-<script>
-/* LOADER */
-window.onload = () => {
-setTimeout(() => {
-document.getElementById("loader").style.display="none";
-document.querySelector("main").style.opacity="1";
-document.getElementById("music").play();
-document.body.style.overflow="auto";
-}, 2500);
-};
+<h2>Topluluk</h2>
 
-/* PARTICLES */
-const c=document.getElementById("particles");
-const x=c.getContext("2d");
+<p>
+707; arkadaş ortamı kurmak, sohbet etmek ve birlikte vakit geçirmek için
+oluşturulmuş modern bir Discord topluluğudur. Amaç sadece konuşmak değil,
+gerçek bir dijital arkadaş çevresi oluşturmaktır.
+</p>
 
-c.width=innerWidth;
-c.height=innerHeight;
+<div class="cards">
 
-let p=[];
-for(let i=0;i<80;i++){
-p.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2});
-}
+<div class="card">
+<h3>Sohbet</h3>
+<p>Günlük aktif konuşma ortamı.</p>
+</div>
 
-function draw(){
-x.clearRect(0,0,c.width,c.height);
-for(let i of p){
-x.fillStyle="rgba(255,0,0,0.6)";
-x.beginPath();
-x.arc(i.x,i.y,i.r,0,Math.PI*2);
-x.fill();
-i.x+=0.3;i.y+=0.3;
-if(i.x>c.width)i.x=0;
-if(i.y>c.height)i.y=0;
-}
-requestAnimationFrame(draw);
-}
-draw();
-</script>
+<div class="card">
+<h3>Arkadaşlık</h3>
+<p>Yeni insanlar tanıma imkanı.</p>
+</div>
+
+<div class="card">
+<h3>Eğlence</h3>
+<p>Oyun, muhabbet ve etkinlikler.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- WHY -->
+<section class="section" id="why">
+
+<h2>Neden 707?</h2>
+
+<p>
+Çünkü burası sadece bir sunucu değil. İnsanların rahat hissettiği,
+kendini dışlanmış hissetmediği bir ortam.
+</p>
+
+</section>
+
+<!-- JOIN -->
+<section class="section" id="join">
+
+<div class="final">
+
+<h2>Katılmaya Hazır mısın?</h2>
+
+<p style="margin-top:10px;">
+707 topluluğuna şimdi katıl ve sohbetin bir parçası ol.
+</p>
+
+<a href="https://discord.com/invite/4AkH96FFyZ" target="_blank">
+Discord'a Katıl
+</a>
+
+</div>
+
+</section>
+
+<footer>
+707 © 2026 — Community Project
+</footer>
 
 </body>
 </html>
